@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --Mobile: 375px;
+  --Desktop: 1440px;
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(227, 32%, 91%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 50px 50px;
+  background-color: var(--Grayish-Blue);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  max-width: var(--Mobile);
+}
+header h1 {
+  font-weight: lighter;
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+header h2 {
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+header p {
+  text-align: center;
+}
+section > div {
+  background-color: var(--Very-Light-Gray);
+  margin: 20px 0 0;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+  height: 250px;
+  max-width: var(--Mobile);
+  padding: 25px;
+  border-radius: 15px;
+}
+.img-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+section div h3 {
+  font-weight: bolder;
+}
+section div p {
+  font-size: small;
+  margin-top: 15px;
+  max-width: 280px;
+}
+.supervisor {
+    border-top: 5px solid var(--Blue);
+}
+.team {
+  border-top: 5px solid var(--Red);
+}
+.karma {
+  border-top: 5px solid var(--Orange);
+}
+.calculator {
+  border-top: 5px solid var(--Cyan);
+}
+/*  */
+
+@media only screen and (min-width: 700px) {
+  section {
+    display: grid;
+    grid-template-areas: 
+    "supervisor supervisor team team"
+    "supervisor supervisor team team"
+    "karma karma calculator calculator"
+    "karma karma calculator calculator";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 10px;
+  }
+  .supervisor {
+    grid-area: supervisor;
+  }
+  .team {
+    grid-area: team;
+  }
+  .karma {
+    grid-area: karma;
+  }
+  .calculator {
+    grid-area: calculator;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  section {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 20px;
+  }
+  .supervisor {
+    grid-area: supervisor;
+    grid-column: 1/3;
+    grid-row: 2/4;
+  }
+  .team {
+    grid-area: team;
+    grid-column: 3/5;
+    grid-row: 1/3;
+  }
+  .karma {
+    grid-area: karma;
+    grid-column: 3/5;
+    grid-row: 3/5;
+  }
+  .calculator {
+    grid-area: calculator;
+    grid-column: 5/7;
+    grid-row: 2/4;
+  }
+}
